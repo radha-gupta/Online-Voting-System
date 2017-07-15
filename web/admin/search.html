@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>ADMIN</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="button.css">
+        <script>
+            var request;
+            function searchInfo() {
+                var value = document.search.myList.value;
+                var user = document.search.username.value;
+                var name = document.search.name.value;
+                var rollno = document.search.rollno.value;
+                var course= document.search.course.value;
+                var branch = document.search.branch.value;
+
+                var url = "search.jsp?x=" + value+"&y="+user+"&z="+name+"&w="+rollno+"&q="+course+"&r="+branch;
+         
+                
+                if (window.XMLHttpRequest) {
+                    request = new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject) {
+                    request = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                try {
+                    request.onreadystatechange = function () {
+                        if (request.readyState == 4) {
+                            var val = request.responseText;
+                            document.getElementById('info').innerHTML = val;
+                        }
+                    }//end of function  
+                    request.open("GET", url, true);
+                    request.send();
+                } catch (e) {
+                    alert("Unable to connect to server");
+                }
+            }
+            
+            function searchInfo2() {
+                var val = document.search2.check.value;
+                var url = "display.jsp?x=" + val;
+         
+                
+                if (window.XMLHttpRequest) {
+                    request = new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject) {
+                    request = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                try {
+                    request.onreadystatechange = function () {
+                        if (request.readyState == 4) {
+                            var val = request.responseText;
+                            document.getElementById('info').innerHTML = val;
+                        }
+                    }//end of function  
+                    request.open("GET", url, true);
+                    request.send();
+                } catch (e) {
+                    alert("Unable to connect to server");
+                }
+            }
+        </script>  
+    </head>
+    <body>
+              <br><br><br>
+      
+      <div style="height:80%">        
+      <!-- first div -->        
+      <div style="float:left;width: 50%;">    
+          <form name="search">
+                   
+            <label class="mylabel" style="color:blue">Search user by &nbsp;</label>
+              
+            <select name = "myList" style="width: 180px; height: 25px">
+               <option value = "1" >username</option>
+               <option value = "2">name</option>
+               <option value = "3">rollno</option>
+               <option value = "4">course</option>
+               <option value = "5">branch</option>
+               <option value = "6">all</option>
+            </select>
+              
+              <br><br>
+
+       
+             <label class="mylabel"><U>ENTER :</u></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <br><br>
+            <label class="mylabel" >Username :</label> <input type="text" name="username" value="" style="height:30px;width:190px"> <br><br>
+            <label class="mylabel">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label> <input type="text" name="name" value="" style="height:30px;width:190px"> <br><br>
+            <label class="mylabel">Rollno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label> <input type="text" name="rollno" value="" style="height:30px;width:190px"> <br><br>
+            <label class="mylabel">Course &nbsp;&nbsp;&nbsp;&nbsp;:</label> <input type="text" name="course" value="" style="height:30px;width:190px"> <br><br>
+            <label class="mylabel">Branch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label> <input type="text" name="branch" value="" style="height:30px;width:190px"> <br><br>
+            <br>
+            
+            <input style="margin-left: 100px"  type="button" value="Search" onclick="searchInfo()">
+          </form>    
+          </div>
+        <!-- end of first div -->     
+      
+        
+       <!-- second div -->     
+         <div style="float:left;width: 40%;">
+           <form name="search2">  
+            <input type="radio" name="check" value="Admin_info"  style="height:20px;width:50px;" ><label class="mylabel">Display admin Information</label><br>
+             <br> 
+            <input type="radio" name="check" value="Election_info" style="height:20px;width:50px;"><label class="mylabel">Display election Information</label><br>
+             <br>
+            <input type="button" onclick="searchInfo2()" value="Display">
+          </form>
+        </div>  
+       <!-- end of second div -->
+        
+    </div>
+      
+              <div style="padding: 10px">  <span id="info" style="padding-left: 10px"></span>  </div>
+ 
+       
+       
+    </body>
+</html>

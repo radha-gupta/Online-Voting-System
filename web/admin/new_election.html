@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>ADMIN</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="button.css">
+         <script>
+            var request;
+            function enterInfo() {
+                var name = document.add.ename.value;
+                var date = document.add.edate.value;
+                var time = document.add.etime.value;
+                var details = document.add.details.value;
+                var url = "new_election.jsp?x=" + name+"&y="+date+"&z="+time+"&w="+details;
+         
+                
+                if (window.XMLHttpRequest) {
+                    request = new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject) {
+                    request = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                try {
+                    request.onreadystatechange = function () {
+                        if (request.readyState == 4) {
+                            var val = request.responseText;
+                            document.getElementById('info').innerHTML = val;
+                        }
+                    }//end of function  
+                    request.open("GET", url, true);
+                    request.send();
+                } catch (e) {
+                    alert("Unable to connect to server");
+                }
+            }
+        </script>  
+    </head>
+    <body>
+        <form name="add">
+            <table style="padding:40px;padding-bottom: 10px;">
+                <tr>
+                    <td style="width: 200px"><label class="mylabel">Election name</label></td>
+                    <td style="width: 600px"><input type="text" name="ename"  style="height:30px;width: 330px"></td>
+                </tr>
+                <tr>
+                    <td><label class="mylabel">Date</label></td>
+                    <td><input type="text" name="edate" value="" style="height:30px;width:330px"></td>
+                </tr>
+                <tr>
+                    <td><label class="mylabel">Time (a pm - b pm)</label></td>
+                    <td><input type="text" name="etime" value="" style="height:30px;width:330px"></td>
+                </tr>
+                <tr>
+                    <td><label class="mylabel">Description </td>
+                    <td><textarea cols="50" rows="8"  placeholder="Add details" name="details"></textarea></td>
+                </tr>
+                 <tr>
+                    <td colspan=2 style="padding-left:300px;padding-top: 50px"><input type="button" value="ENTER" onclick="enterInfo()"></td>
+                </tr>
+            </table>
+        </form>
+
+     <div style="padding-left: 100px;font-size: 20px;"> Status  : <span id="info" style="padding-left: 20px">none</span>  </div>
+
+    </body>
+</html>

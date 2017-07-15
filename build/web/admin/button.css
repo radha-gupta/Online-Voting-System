@@ -1,0 +1,71 @@
+.myButton {
+
+	
+	background-color:#2B84E0;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	//color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+        margin-left:30px;
+        margin-right: 30px;
+        border-color:#2B84E0; 
+        width: 160px;
+        height: 33px;
+	text-decoration:none;
+	text-shadow:-2px 0px 3px #b23e35;
+}
+
+.myButton1{
+       -moz-box-shadow:inset -5px 17px 0px -17px #e67a73;
+       -webkit-box-shadow:inset -5px 17px 0px -17px #e67a73;
+	box-shadow:inset -5px 17px 0px -17px #e67a73;
+	background-color:#2B84E0;
+	-moz-border-radius:11px;
+	-webkit-border-radius:11px;
+	border-radius:6px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	width: 160px;
+        height: 40px;
+	text-decoration:none;
+        margin-left: 20px;
+	text-shadow:-2px 0px 3px #b23e35;   
+}
+.myButton:hover {
+	background-color:#1867C7;
+}
+
+.submitbutton{
+       -moz-box-shadow:inset -5px 17px 0px -17px #e67a73;
+       -webkit-box-shadow:inset -5px 17px 0px -17px #e67a73;
+	box-shadow:inset -5px 17px 0px -17px #e67a73;
+	background-color:#D8D5D8;
+	-moz-border-radius:11px;
+	-webkit-border-radius:11px;
+	border-radius:11px;
+	border:3px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:20px;
+	width: 100px;
+        height: 40px;
+	text-decoration:none;
+        margin-left: 20px;
+        margin-top: 20px;
+   
+    
+}
+
+.mylabel{
+    padding:20px;
+    font-size: 20px;    
+}

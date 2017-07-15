@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+ <!DOCTYPE html> 
+<html>
+    <head>
+        <title>ADMIN</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="button.css">
+        <script>
+            var request;
+            function enterInfo() {
+                var name = document.add.username.value;
+                var pass = document.add.password.value;
+                var url = "new_admin.jsp?x=" + name+"&y="+pass;     //passing parameters to jsp page
+         
+                
+                if (window.XMLHttpRequest) {
+                    request = new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject) {
+                    request = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                try {
+                    request.onreadystatechange = function () {
+                        if (request.readyState == 4) {
+                            var val = request.responseText;
+                            document.getElementById('info').innerHTML = val;
+                        }
+                    }//end of function  
+                    request.open("GET", url, true);
+                    request.send();
+                } catch (e) {
+                    alert("Unable to connect to server");
+                }
+            }
+        </script>  
+
+    </head>
+    
+    <body>
+       
+        <form name="add"> 
+            <table style="padding:40px;padding-bottom: 10px">
+                
+                <tr>
+                    <td style="width:200px;margin:100px"><label class="mylabel">Enter user name :</label></td><td style="width:400px;"> <input type="text"  name="username" required style="height:30px;width:300px"/></td>
+                </tr>
+                <tr>
+                    <td style="width:200px;margin:100px"><label class="mylabel">Enter password :</label> </td><td style="width:400px;"> <input type="text"  name="password" required style="height:30px;width:300px"/></td>
+                </tr>
+                <tr>
+                    <td colspan=2 style="padding-left:300px;padding-top: 50px"><input style="width:100px;height: 30px" type="button" value="ENTER" onclick="enterInfo()"></td>
+                </tr>
+            </table>
+        </form>  
+        
+        <div style="padding: 100px;font-size: 20px"> Status  : <span id="info" style="padding-left: 20px">none</span>  </div>
+    </body>
+</html>
+
+
+

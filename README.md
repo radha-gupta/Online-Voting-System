@@ -11,7 +11,7 @@ The head admin sets up an environment of the different elections going inside fi
 After the election time is over, a bar chart representing the no of votes of each candidate is displayed in result section.One voter can cast his vote only one time in an election.<br/>
 
 # Admin Section<br/>
-•	There is a head admin (username : Tarzen and password : 123) who has the power to add and delete other admins.<br/><br/>
+•	There is a head admin (username : Tarzen and password : 123) who has the power to add and delete other admins.<br/>
 •	Admin can add a new election, add candidates, search any candidate and can authenticate the candidates.<br/>
 •	Admin section is coded with Ajax so as to fast retrieval of the data.<br/>
 •	Whenever admins adds a new election,two tables are formed dynamically. One in student database where details of the each election is       stored and other in authentication database.<br/>
@@ -20,7 +20,7 @@ After the election time is over, a bar chart representing the no of votes of eac
  # Voters Section<br/>
 •	There are two main sections :- Voters corner and contact us.<br/>
 •	In voters corner, every election has four buttons :-<br/>
-  &nbps  	View candidates : for viewing the profile. <br/>
+    	View candidates : for viewing the profile. <br/>
     	Request for vote : to get authenticated from the admin.<br/>
     	Click for vote : choose the candidate and cast the vote.<br/>
     	View result : once election is over, this will show the result in form of pi-chart.<br/>
